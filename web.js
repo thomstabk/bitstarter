@@ -6,11 +6,19 @@ var app = express();
 var fs = require('fs');
 app.use(express.logger());
 
+var body; 
+fs.readFile('index.html', function(error, data) {
+  if (error) throw error;
+  body = data.toString();
+  processData();
+});
+function processData () {
+   console.log(body);
+};
+
+
 app.get('/', function(request, response) {
-  fs.readFile('index.html', function(err, data) {
-    if (err) throw err;
-    respond.send(data.toString());
-  });
+    response.send(body);
 });
 
 var port = process.env.PORT || 8888;
