@@ -13,7 +13,7 @@ fs.readFile('index.html', function(error, data) {
   processData();
 });
 function processData () {
-   console.log(body);
+//   console.log(body);
 };
 
 
@@ -21,7 +21,7 @@ app.get('/', function(request, response) {
     response.send(body);
 });
 
-var port = process.env.PORT || 8888;
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });

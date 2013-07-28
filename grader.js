@@ -26,18 +26,9 @@ var assertURLExists = function(url) {
     if (results instanceof Error) {
       console.log('Error getting url' + results.message);
     } else {
-      fs.writeFile("/tmp/test.html", results, function(err, buffer) {
-        if (err instanceof Error) {
-           console.log("There was a write error" + err);
-        } else {
-          console.log("The file was saved!");
-        }
-      }); 
+      var instr = results.toString();
     }
   });
-//THIS PART DOES NOT WORK YET
-  var instr = fs.readFileSync("test.html").toString;
-  return instr; 
 };
 
 var assertFileExists = function(infile) {
